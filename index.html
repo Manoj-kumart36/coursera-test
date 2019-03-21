@@ -1,5 +1,33 @@
-<html>
-    <body>
-        herllloooo crazzyyyy
-    </body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Lunch Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <style>
+      .message { font-size: 1.3em; font-weight: bold; }
+    </style>
+  </head>
+<body ng-app="LunchCheck">
+   <div class="container" ng-controller="LunchCheckController">
+     <h1>Lunch Checker</h1>
+
+         <div class="form-group">
+             <input id="lunch-menu" type="text"
+             placeholder="list comma separated dishes you usually have for lunch"
+             class="form-control" ng-model="DishNames">
+         </div>
+         <div class="form-group">
+             <button class="btn btn-default" ng-click="verifyLunchLoad()">Check If Too Much</button>
+         </div>
+         <div class="form-group message">
+           {{message}}
+           <!-- Your message can go here. -->
+         </div>
+         <div>Empty values will not be considered as dish names and therfore will not be taken for calculations. ex: , , ,</div>
+   </div>
+
+</body>
 </html>
