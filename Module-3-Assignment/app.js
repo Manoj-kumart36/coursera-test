@@ -57,13 +57,14 @@ MenuSearchService.$inject = ['$http', 'databaseUrl'];
 
 function MenuSearchService($http, databaseUrl) {
     var menuService = this;
+    var foundItems = [];
     menuService.getMatchedMenuItems = function(searchItem) {
       return $http({
         method: "GET",
         url: (databaseUrl + "/menu_items.json")
       }).then(function(result) {
+        foundItems = [];
         var responseItems = result.data.menu_items;
-        var foundItems = [];
         for (var index = 0; index < responseItems.length; ++index) {
           if (responseItems[index].description.toLowerCase().indexOf(searchItem.toLowerCase()) >= 0) {
             foundItems.push(responseItems[index]);
