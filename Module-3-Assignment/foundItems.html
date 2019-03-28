@@ -1,0 +1,8 @@
+<ul>
+  <li ng-repeat="item in foundCtrl.items">
+    {{ item.name }}, {{ item.short_name }} , {{item.description}}
+    <button ng-click="foundCtrl.onRemove({index: $index});">Don't want this one!</button>
+  </li>
+</ul>
+<div ng-if="foundCtrl.beforeSearch()" class="message"></div>
+<div ng-if="foundCtrl.nothingFound()" class="message">Nothing found.</div>
